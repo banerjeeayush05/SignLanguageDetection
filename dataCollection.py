@@ -6,7 +6,7 @@ import uuid
 import os
 
 #Creating the OpenCV camera object
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 #Creating the HandDetector object
 detector = HandDetector(maxHands = 1)
 
@@ -19,6 +19,11 @@ folder_paths = ["A", "B", "C"]
 
 #Main script
 if(__name__ == "__main__"):
+
+    #Creating a Data directory
+    if(not os.path.exists("Data")):
+        os.mkdir("Data")
+
     #Getting user input for which folder images will be added to
     folder_index = -1
     while True:
@@ -28,6 +33,9 @@ if(__name__ == "__main__"):
         else:
             print("Please enter a valid number.")
             continue
+    
+    if(not os.path.exists(f"Data/{folder_paths[folder_index]}")):
+        os.mkdir(f"Data/{folder_paths[folder_index]}")
 
     '''Getting user input if images want to be added with the previous images 
     or starting from no images in the specified folder'''

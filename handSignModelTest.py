@@ -25,7 +25,7 @@ def truncate(float, num_places):
 class_mapping = ["A", "B", "C"]
 
 #Creating the OpenCV camera object
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 #Creating the HandDetector object
 detector = HandDetector(maxHands = 1)
 
